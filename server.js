@@ -91,15 +91,21 @@ app.use('/api/faculty', facultyRoutes);
 app.use('/api/upload', uploadRoutes); // Image upload routes
 app.use('/api', imageProxyRoutes); // Image proxy routes
 
-// Placeholder image route
+// Placeholder image route - generate SVG locally
 app.get('/api/placeholder/:width/:height', (req, res) => {
   const { width, height } = req.params;
   const color = req.query.color || '666666';
   const text = req.query.text || `${width}x${height}`;
   
-  // Redirect to a placeholder service
-  const placeholderUrl = `https://via.placeholder.com/${width}x${height}/${color}/ffffff?text=${encodeURIComponent(text)}`;
-  res.redirect(placeholderUrl);
+  // Generate a simple SVG placeholder
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+    <rect width="100%" height="100%" fill="#${color}"/>
+    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">${text}</text>
+  </svg>`;
+  
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Cache-Control', 'public, max-age=31536000');
+  res.send(svg);
 });
 
 // Root endpoint
