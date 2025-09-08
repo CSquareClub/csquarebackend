@@ -25,8 +25,8 @@ const corsOptions = {
     'http://localhost:5173', 
     'http://127.0.0.1:3000', 
     'http://127.0.0.1:5173',
-    'https://c-squareclub-chi.vercel.app',
-    'https://c-squareclub-chi.vercel.app/'
+    'https://c-squareclubofficial.vercel.app/',
+    'https://c-squareclubofficial.vercel.app/'
   ],
   credentials: true,
   optionsSuccessStatus: 200,
