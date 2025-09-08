@@ -20,7 +20,14 @@ const app = express();
 
 // CORS configuration - Must be first to handle preflight requests
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173'],
+  origin: [
+    'http://localhost:3000', 
+    'http://localhost:5173', 
+    'http://127.0.0.1:3000', 
+    'http://127.0.0.1:5173',
+    'https://c-squareclub-chi.vercel.app',
+    'https://c-squareclub-chi.vercel.app/'
+  ],
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
@@ -28,7 +35,7 @@ const corsOptions = {
   exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
 };
 
-console.log('🔧 CORS: Allowing specific origins for development');
+console.log('🔧 CORS: Allowing localhost and production origins');
 app.use(cors(corsOptions));
 
 // Handle preflight requests explicitly
