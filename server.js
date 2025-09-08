@@ -15,6 +15,7 @@ const galleryRoutes = require('./routes/gallery');
 const facultyRoutes = require('./routes/faculty');
 const imageProxyRoutes = require('./routes/imageProxy');
 const uploadRoutes = require('./routes/upload');
+const toastRoutes = require('./routes/toast');
 
 const app = express();
 
@@ -96,6 +97,7 @@ app.use('/api/gallery', galleryRoutes);
 app.use('/api/faculty', facultyRoutes);
 app.use('/api/upload', uploadRoutes); // Image upload routes
 app.use('/api', imageProxyRoutes); // Image proxy routes
+app.use('/api/toast', toastRoutes);
 
 // Placeholder image route - generate SVG locally
 app.get('/api/placeholder/:width/:height', (req, res) => {

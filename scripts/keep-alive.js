@@ -13,7 +13,7 @@ require('dotenv').config();
 
 // Configuration
 const BACKEND_URL = process.env.BACKEND_URL || 'https://csquarebackend-1.onrender.com';
-const PING_INTERVAL = 14 * 60 * 1000; // 14 minutes in milliseconds
+const PING_INTERVAL = 7 * 60 * 1000; // 14 minutes in milliseconds
 const HEALTH_ENDPOINT = '/api/health';
 
 // Create axios instance with timeout
