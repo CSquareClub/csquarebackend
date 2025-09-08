@@ -25,8 +25,7 @@ const corsOptions = {
     'http://localhost:5173', 
     'http://127.0.0.1:3000', 
     'http://127.0.0.1:5173',
-    'https://c-squareclubofficial.vercel.app/',
-    'https://c-squareclubofficial.vercel.app/'
+    'https://c-squareclubofficial.vercel.app'
   ],
   credentials: true,
   optionsSuccessStatus: 200,
@@ -35,7 +34,7 @@ const corsOptions = {
   exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
 };
 
-console.log('🔧 CORS: Allowing localhost and production origins');
+console.log('🔧 CORS: Allowing localhost and production origins (c-squareclubofficial.vercel.app)');
 app.use(cors(corsOptions));
 
 // Handle preflight requests explicitly
